@@ -1,0 +1,47 @@
+[
+  {
+    "id": "CAL-01",
+    "titulo": "Diseñar layout de MADM - Misión Control",
+    "responsable": "Faro",
+    "inicio": "2026-02-26",
+    "fin": "2026-02-27",
+    "estado": "In progress",
+    "resumen": "Definir bloques visuales para el board, calendario y sub-agentes.",
+    "evidencia": "Draft del mockup en figma + captura del HTML.",
+    "checklist": [
+      { "label": "Definir paleta y tipografías", "completed": true },
+      { "label": "Estructurar layout en Astro", "completed": true },
+      { "label": "Probar datos del board", "completed": false }
+    ]
+  },
+  {
+    "id": "CAL-02",
+    "titulo": "Importar datos del task board",
+    "responsable": "Script automatizado",
+    "inicio": "2026-02-25",
+    "fin": "2026-02-25",
+    "estado": "Done",
+    "resumen": "Exportar tabla Markdown a JSON para la UI.",
+    "evidencia": "scripts/export_board.py + board.json actualizado.",
+    "checklist": [
+      { "label": "Leer TASK_BOARD.md", "completed": true },
+      { "label": "Generar board.json", "completed": true },
+      { "label": "Verificar carga en UI", "completed": true }
+    ]
+  },
+  {
+    "id": "CAL-03",
+    "titulo": "Mapear sub-agentes y estados",
+    "responsable": "Neto",
+    "inicio": "2026-02-28",
+    "fin": "2026-03-02",
+    "estado": "Backlog",
+    "resumen": "Recolectar funciones, dependencias y métricas de cada modelo autónomo.",
+    "evidencia": "Notas en TASK_BOARD.md + subagents.json",
+    "checklist": [
+      { "label": "Listar modelos actuales", "completed": false },
+      { "label": "Definir KPIs de estado", "completed": false },
+      { "label": "Asignar responsable humano", "completed": false }
+    ]
+  }
+]

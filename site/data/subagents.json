@@ -1,0 +1,35 @@
+[
+  {
+    "nombre": "madm_research",
+    "alias": "Centinela de Insights",
+    "rol": "Investigación y síntesis",
+    "estado": "activo",
+    "funcion": "Analiza nuevas fuentes, resume hallazgos y elabora briefs listos para contenido.",
+    "dependencia": "Necesita acceso a `memory/reference` y feeds de Brave Search API.",
+    "ultimo_checkin": "2026-02-25 18:04 UTC",
+    "nota": "Enfocado en temas educativos y automatizaciones." ,
+    "proximo_paso": "Rastrear menciones del reto de límites en Discord y actualizar insights."
+  },
+  {
+    "nombre": "madm_ops",
+    "alias": "Guardia de Infra",
+    "rol": "Operaciones y automatizaciones",
+    "estado": "blocked",
+    "funcion": "Mantiene runbooks, verifica despliegues y alerta cuando hay fallos en pipelines.",
+    "dependencia": "Precisa token activo para GitHub y la conexión con Cloudflare Pages.",
+    "ultimo_checkin": "2026-02-25 16:21 UTC",
+    "nota": "En espera de credenciales de Cloudflare para automatizar deploy.",
+    "proximo_paso": "Validar secrets y reintentar GitHub Actions."
+  },
+  {
+    "nombre": "madm_content",
+    "alias": "Narrador en residencia",
+    "rol": "Contenido y storytelling",
+    "estado": "review",
+    "funcion": "Produce guiones, copys y prompts para el team de creación.",
+    "dependencia": "Requiere brief actualizado y calendario de lanzamientos.",
+    "ultimo_checkin": "2026-02-24 22:11 UTC",
+    "nota": "Revisión en curso: adaptar entregables al tono Más Allá del Miedo.",
+    "proximo_paso": "Sincronizar con las fechas del calendario y aprobar CTA."
+  }
+]

@@ -1,0 +1,166 @@
+---
+import '../styles/global.css';
+import boardData from '../../data/board.json';
+import calendarData from '../../data/calendar.json';
+import subagents from '../../data/subagents.json';
+
+const estadoEtiquetas = {
+  Backlog: { label: 'Backlog', badge: 'backlog' },
+  'In progress': { label: 'En progreso', badge: 'in-progress' },
+  'Review/Blocked': { label: 'Revisión / Bloqueado', badge: 'review' },
+  Done: { label: 'Cerrado', badge: 'done' },
+};
+
+const boardSummary = boardData.reduce(
+  (acc, task) => {
+    acc.total += 1;
+    acc[task.Estado] = (acc[task.Estado] ?? 0) + 1;
+    return acc;
+  },
+  { total: 0 }
+);
+
+const calendarSuccess = calendarData.map((entry) => {
+  const checklistCompleted = entry.checklist?.every((item) => item.completed);
+  return {
+    ...entry,
+    success: checklistCompleted && Boolean(entry.evidencia),
+  };
+});
+
+const agentStates = {
+  activo: '#45a29e',
+  blocked: '#ff7676',
+  review: '#f7b731',
+};
+---
+
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <title>MADM - Misión Control</title>
+    <meta name="description" content="Panel de control de Más Allá del Miedo: tareas, calendario y sub-agentes." />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </head>
+  <body>
+    <main>
+      <section>
+        <h1>MADM — Misión Control</h1>
+        <p>
+          Nuestro tablero de mando muestra el mapa de tareas sincronizado con el repo, el calendario de
+          ejecuciones y el estado de los sub-agentes autónomos.
+        </p>
+        <p>
+          Total de tareas registradas: <strong>{boardSummary.total}</strong>. Estados: {Object.entries(boardSummary)
+          .filter(([key]) => key !== 'total')
+          .map(([key, value]) => `${key}: ${value}`)
+          .join(' · ')}.
+        </p>
+      </section>
+
+      <section>
+        <h2>Mapa de tareas</h2>
+        <div class="card">
+          <table>
+            <thead>
+              <tr>
+                <th>Task</th>
+                <th>Estado</th>
+                <th>Responsable</th>
+                <th>Actualizaciones</th>
+                <th>Siguiente paso</th>
+              </tr>
+            </thead>
+            <tbody>
+              {boardData.map((task) => (
+                <tr>
+                  <td>{task.Task}</td>
+                  <td>
+                    <span class={`badge ${estadoEtiquetas[task.Estado]?.badge ?? 'review'}`}>
+                      {estadoEtiquetas[task.Estado]?.label ?? task.Estado}
+                    </span>
+                  </td>
+                  <td>{task.Responsable}</td>
+                  <td>{task['Actualizaciones recientes']}</td>
+                  <td>{task['Siguiente paso']}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section>
+        <h2>Calendario de ejecuciones</h2>
+        <p>
+          Cada entrada indica la evidencia y el checklist que se debe completar para considerar una ejecución
+          validada.
+        </p>
+        <div class="timeline">
+          {calendarSuccess.map((entry) => (
+            <article class="timeline-entry">
+              <div style={`border-left-color: ${entry.success ? '#45a29e' : '#ff7676'}`}>
+                <h3>{entry.titulo}</h3>
+                <small>
+                  {entry.inicio} → {entry.fin} · {entry.responsable}
+                </small>
+                <div class={`status-pill ${entry.success ? 'active' : entry.estado === 'Review/Blocked' ? 'review' : 'blocked'}`}>
+                  {entry.success ? 'Ejecución validada' : entry.estado}
+                </div>
+                <p>{entry.resumen}</p>
+                {entry.evidencia && (
+                  <p>
+                    <strong>Evidencia:</strong> {entry.evidencia}
+                  </p>
+                )}
+                {entry.checklist && (
+                  <ul class="checklist">
+                    {entry.checklist.map((item) => (
+                      <li class={item.completed ? 'completed' : ''}>{item.label}</li>
+                    ))}
+                  </ul>
+                )}
+              </div>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section>
+        <h2>Sub-agentes en operación</h2>
+        <p>Listamos a los modelos autónomos activos, su función y si necesitan intervención.</p>
+        <div class="subagents-grid">
+          {subagents.map((agent) => (
+            <article class="card">
+              <div style={`display:flex; align-items:center; justify-content:space-between;`}>
+                <div>
+                  <h3>{agent.nombre}</h3>
+                  <small>{agent.alias}</small>
+                </div>
+                <span class="status-pill" style={`border-color:${agentStates[agent.estado] ?? '#45a29e'}; color:${agentStates[agent.estado] ?? '#45a29e'};`}>
+                  {agent.estado}
+                </span>
+              </div>
+              <p>
+                <strong>Rol:</strong> {agent.rol}
+              </p>
+              <p>
+                <strong>Función:</strong> {agent.funcion}
+              </p>
+              <p>
+                <strong>Dependencia:</strong> {agent.dependencia}
+              </p>
+              <p>
+                <strong>Último check-in:</strong> {agent.ultimo_checkin}
+              </p>
+              <p>
+                <strong>Próximo paso:</strong> {agent.proximo_paso}
+              </p>
+              {agent.nota && <small>{agent.nota}</small>}
+            </article>
+          ))}
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
