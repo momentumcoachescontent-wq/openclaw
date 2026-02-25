@@ -52,6 +52,8 @@ La carpeta `memory/` contiene decisiones, protocolos y prompts base para los age
 
 ## Skills adicionales
 
+![Skills verificados](https://img.shields.io/badge/skills-verified-brightgreen?logo=shield&labelColor=10111b)
+
 - `skills/README.md` describe los skills qmd (búsqueda local), openclaw-supermemory (memoria selectiva), prompt-guard (defensa contra inyecciones) y Dont Hack Me. Léelo para conocer cómo instalar cada herramienta y cómo ayudan a ahorrar tokens, memoria y seguridad.
 - `scripts/setup_skills.sh` clona los repositorios oficiales y deja los skills dentro de `skills/` para que los puedas activar desde la interfaz (usa `./scripts/setup_skills.sh`).
 - `scripts/verify_skills.sh` valida que los skills esperados estén presentes y detecta si faltan dependencias como Bun o prompt_guard; ejecútalo antes de correr cualquier otro comando.
