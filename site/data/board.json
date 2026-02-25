@@ -62,5 +62,21 @@
     "Actualizaciones recientes": "Queremos que en el panel aparezca quiénes son los modelos autónomos, qué hacen y si están activos/bloqueados.",
     "Siguiente paso": "Diseñar el esquema de metadatos para cada sub-agente (nombre, rol, estado, dependencias) y texto explicativo.",
     "Fecha actualización": "2026-02-25"
+  },
+  {
+    "Task": "Integrar QMD, Supermemory, Prompt Guard y Dont Hack Me",
+    "Estado": "Backlog",
+    "Responsable": "Faro + Equipo",
+    "Actualizaciones recientes": "Documentamos los cuatro skills en `skills/README.md` y preparamos el script `scripts/setup_skills.sh` para descargarlos.",
+    "Siguiente paso": "Validar el script, ejecutarlo para traer los repositorios y registrar manualmente `Dont Hack Me` desde OpenClaw; luego capturar sus patrones en `memory/REFERENCE.md`.",
+    "Fecha actualización": "2026-02-25"
+  },
+  {
+    "Task": "Automatizar la verificación de skills antes de ejecutar código",
+    "Estado": "In progress",
+    "Responsable": "Faro + Equipo",
+    "Actualizaciones recientes": "Creamos `scripts/verify_skills.sh` y `scripts/run_with_skills.sh` para asegurar que los guardias estén cargados antes de cualquier build.",
+    "Siguiente paso": "Ejecutar `./scripts/run_with_skills.sh <comando>` antes de tareas críticas y documentar el estado de los skills en el tablero o en `memory/REFERENCE.md`.",
+    "Fecha actualización": "2026-02-25"
   }
 ]

@@ -38,6 +38,8 @@ Este repositorio enlaza y documenta los skills que queremos incorporar al ecosis
 
 ## Automatización recomendada
 - `scripts/setup_skills.sh` descarga automáticamente los repositorios donde se alojan los skills. Úsalo para mantener todo en `skills/` de manera reproducible.
+- `scripts/verify_skills.sh` valida que las carpetas estén presentes y alerta si falta alguna dependencia crítica (Bun, prompt_guard). Ejecútalo antes de correr un build o script que dependa de los guardias.
+- Prefiere `scripts/run_with_skills.sh <command>` para combinar setup + verificación + ejecución; así los skills se consideran en el mismo flujo cada vez que modificas código.
 - Actualiza `README.md` con las rutas y comandos de cada skill para que otros miembros del equipo puedan activarlos sin buscar en la web.
 - Documenta las dependencias de seguridad en `memory/REFERENCE.md` (por ejemplo, qué patrones detecta Prompt Guard y cuándo habilitar `Dont Hack Me`).
 
