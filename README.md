@@ -49,3 +49,9 @@ La carpeta `memory/` contiene decisiones, protocolos y prompts base para los age
    - `CLOUDFLARE_ACCOUNT_ID` (ID de cuenta de Cloudflare).
    - `CLOUDFLARE_PROJECT_NAME` (igual al nombre del proyecto, p. ej. `madm-mision-control`).
 4. Cada push ejecutará el workflow y desplegará el panel actualizado.
+
+## Skills adicionales
+
+- `skills/README.md` describe los skills qmd (búsqueda local), openclaw-supermemory (memoria selectiva), prompt-guard (defensa contra inyecciones) y Dont Hack Me. Léelo para conocer cómo instalar cada herramienta y cómo ayudan a ahorrar tokens, memoria y seguridad.
+- `scripts/setup_skills.sh` clona los repositorios oficiales y deja los skills dentro de `skills/` para que los puedas activar desde la interfaz (usa `./scripts/setup_skills.sh`).
+- Una vez que tengas los repositorios, documenta sus patrones/ajustes en `memory/REFERENCE.md` para que el panel `MADM — Misión Control` refleje qué guardias están activos.
