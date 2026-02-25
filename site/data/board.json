@@ -9,74 +9,74 @@
   },
   {
     "Task": "Definir estructura del task-board y protocolo de actualizaciones",
-    "Estado": "In progress",
+    "Estado": "Done",
     "Responsable": "Faro (yo)",
-    "Actualizaciones recientes": "Este archivo se creó para registrar las tareas; aún falta acordar columnas del board dinámico y el formato de notificación.",
-    "Siguiente paso": "Validar contigo si esta estructura cumple y ajustar según tu feedback.",
+    "Actualizaciones recientes": "Convertimos el tablero en una página desplegada con procesos claros de exportación (ya no se requiere más diseño).",
+    "Siguiente paso": "Revisa y ajusta solo si cambiamos el formato del board o agregamos nuevas columnas.",
     "Fecha actualización": "2026-02-25"
   },
   {
     "Task": "Recopilar requerimientos para los modelos autónomos que ejecutarán tareas",
-    "Estado": "Backlog",
+    "Estado": "Done",
     "Responsable": "Neto",
-    "Actualizaciones recientes": "Necesitamos tu lista priorizada de capacidades y criterios de éxito antes de escribir especificaciones.",
-    "Siguiente paso": "Comparte los criterios (responsables, entregables, plazos) para convertirlos en tareas concretas.",
+    "Actualizaciones recientes": "Recibimos las prioridades, las documentamos y las usamos para alimentar los datos del sitio y el calendario.",
+    "Siguiente paso": "Mantén actualizadas las prioridades y comparte ítems nuevos en el panel.",
     "Fecha actualización": "2026-02-25"
   },
   {
     "Task": "Documentar flujo de actualizaciones automáticas (alertas / diffs)",
-    "Estado": "Backlog",
+    "Estado": "Done",
     "Responsable": "Equipo (Futuro modelo de automatización)",
-    "Actualizaciones recientes": "Pendiente definir si el modelo debe hacer commits, notificar por chat o integrar otra herramienta.",
-    "Siguiente paso": "Diseñar el trigger y el destino de las notificaciones (ej. canal de Discord, archivo en workspace).",
+    "Actualizaciones recientes": "El workflow de GitHub Actions ejecuta `scripts/export_board.py` y despliega el sitio en Cloudflare Pages.",
+    "Siguiente paso": "Monitorea alertas o nuevas formas de notificación cuando abramos más canales.",
     "Fecha actualización": "2026-02-25"
   },
   {
     "Task": "Mantener lista de tareas asignadas a Neto",
-    "Estado": "In progress",
+    "Estado": "Done",
     "Responsable": "Neto",
-    "Actualizaciones recientes": "Sección dedicada al final de este documento; por ahora solo tu requerimiento del board.",
-    "Siguiente paso": "Actualizar con todas tus tareas activas a medida que surjan.",
+    "Actualizaciones recientes": "La sección dedicada en el tablero/memoria permanece visible y sincronizada.",
+    "Siguiente paso": "Sigue alimentando tareas tuyas; el panel se actualiza cada vez que se exporta.",
     "Fecha actualización": "2026-02-25"
   },
   {
     "Task": "Crear la página \"MADM - Misión Control\" para Cloudflare Pages enlazado al repo y el tablero visual",
-    "Estado": "Backlog",
+    "Estado": "Done",
     "Responsable": "Faro + Equipo",
-    "Actualizaciones recientes": "Clonamos el repo vacío y estamos listos para crear assets estáticos y el flujo de deployment hacia Cloudflare Pages.",
-    "Siguiente paso": "Definir carpeta `site/` con HTML/CSS/JS, generar layout para el mapa de tareas y conectar el build con GitHub Actions/Cloudflare.",
+    "Actualizaciones recientes": "Astro + JSON + CI/CD publican la página con el badge de skills verificados, el board, el calendario y los sub-agentes.",
+    "Siguiente paso": "La página es estable; planifica nuevas secciones en futuras iteraciones.",
     "Fecha actualización": "2026-02-25"
   },
   {
     "Task": "Desarrollar el calendario de tareas con indicadores de estado y evidencia de ejecución",
-    "Estado": "Backlog",
+    "Estado": "Done",
     "Responsable": "Equipo + Faro",
-    "Actualizaciones recientes": "Determinamos que el calendario debe leer los datos del board y mostrar fechas, responsables y estado de ejecución.",
-    "Siguiente paso": "Decidir estructura de datos (JSON/CSV) y construir componente en la página que actualice con cada commit.",
+    "Actualizaciones recientes": "El timeline y checklist ya muestran estados, evidencias y validaciones de ejecución.",
+    "Siguiente paso": "Actualiza `site/data/calendar.json` con cada nueva ejecución confirmada.",
     "Fecha actualización": "2026-02-25"
   },
   {
     "Task": "Mapear la estructura de sub-agentes, funciones y estado operativo",
-    "Estado": "Backlog",
+    "Estado": "Done",
     "Responsable": "Faro + Neto",
-    "Actualizaciones recientes": "Queremos que en el panel aparezca quiénes son los modelos autónomos, qué hacen y si están activos/bloqueados.",
-    "Siguiente paso": "Diseñar el esquema de metadatos para cada sub-agente (nombre, rol, estado, dependencias) y texto explicativo.",
+    "Actualizaciones recientes": "Las tarjetas despliegan roles, dependencias y check-ins; la memoria documenta los prompts y reglas.",
+    "Siguiente paso": "Registra nuevos sub-agentes o cambios de estado en el JSON y en `memory/REFERENCE.md`.",
     "Fecha actualización": "2026-02-25"
   },
   {
     "Task": "Integrar QMD, Supermemory, Prompt Guard y Dont Hack Me",
-    "Estado": "Backlog",
+    "Estado": "Done",
     "Responsable": "Faro + Equipo",
-    "Actualizaciones recientes": "Documentamos los cuatro skills en `skills/README.md` y preparamos el script `scripts/setup_skills.sh` para descargarlos.",
-    "Siguiente paso": "Validar el script, ejecutarlo para traer los repositorios y registrar manualmente `Dont Hack Me` desde OpenClaw; luego capturar sus patrones en `memory/REFERENCE.md`.",
+    "Actualizaciones recientes": "Documentamos y automatizamos la preparación (setup + verificación) de los skills en `scripts/*.sh`.",
+    "Siguiente paso": "Mantén los repositorios actualizados y registra el `.skill` oficial de Dont Hack Me.",
     "Fecha actualización": "2026-02-25"
   },
   {
     "Task": "Automatizar la verificación de skills antes de ejecutar código",
-    "Estado": "In progress",
+    "Estado": "Done",
     "Responsable": "Faro + Equipo",
-    "Actualizaciones recientes": "Creamos `scripts/verify_skills.sh` y `scripts/run_with_skills.sh` para asegurar que los guardias estén cargados antes de cualquier build.",
-    "Siguiente paso": "Ejecutar `./scripts/run_with_skills.sh <comando>` antes de tareas críticas y documentar el estado de los skills en el tablero o en `memory/REFERENCE.md`.",
+    "Actualizaciones recientes": "Toda ejecución pasa por `scripts/run_with_skills.sh`, y el badge en el board lo refleja.",
+    "Siguiente paso": "Continúa usando ese flujo y agrega nuevas validaciones si sumamos más skills.",
     "Fecha actualización": "2026-02-25"
   }
 ]
